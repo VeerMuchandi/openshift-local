@@ -190,7 +190,7 @@ CustomerId: 2 Customer Name: Jack Psql Age: 54
 CustomerId: 3 Customer Name: Ann Psql Age: 32
 ```
 
-```
+
 
 Also note the logs will show the connection url as
 ```
