@@ -1,6 +1,6 @@
 ## Build and Deploy a Container Image
  
-In this exercise, we will learn to create a Container Image using a Dockerfile and deploying it to a Local OpenShift Cluster.
+In this chapter, we will learn to create a Container Image using a Dockerfile and deploying it to a Local OpenShift Cluster.
 
 **Use Case:** As a developer, I want to build a container image and test it locally on my local OpenShift cluster before pushing to an external container registry.
 
