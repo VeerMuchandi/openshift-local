@@ -1,6 +1,6 @@
 ## Change Application and Test Locally
 
-In this exercise, we will learn to do local application development on an OpenShift cluster on your machine. 
+In this chapter, we will learn to do local application development on an OpenShift cluster on your machine. 
 
 **Use Case:** As a developer, I want to repeatedly make changes to my code and test locally on OpenShift. Only when I am happy with my code changes I want to push my code to the source control repository. 
 
@@ -357,7 +357,7 @@ $ curl http://bootapp-myproject.192.168.0.102.xip.io/
 <h1>This Pod's Host Name is bootapp-2-ojg4z</h1>
 ```
 
-**Conclusion:** In this lab, we learnt do make changes to code and test locally.
+**Conclusion:** In this chapter, we learnt do make changes to code and test locally.
 
 
 
