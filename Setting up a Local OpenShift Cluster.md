@@ -22,7 +22,9 @@ OpenShift Command (oc), beginning v1.3+ or Red Hat supported oc v3.3+ provides a
 
 **Additional Instructions/Tips:**
 
-* **Verify Docker is running**: Once you install *Docker for Mac*, run `docker version` to verify it's running. If it does not respond then run	
+* **Verify Docker is running**: Once you install *Docker for Mac*, run 
+```docker version``` 
+to verify it's running. If it does not respond then run	
 ```
 $ unset ${!DOCKER*}
 ```		
