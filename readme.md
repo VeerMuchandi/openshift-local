@@ -10,7 +10,7 @@ Developers trying to use OpenShift have asked the following questions:
 
 Yes, yes, yes ....
 
-In this book, we will learn to setup a local OpenShift cluster on a developer's workstation and to do application development on this local cluster.
+In this book, we will learn to setup a local OpenShift cluster on a developer's workstation and to do application development on this local cluster. I am writing this book as a tutorial with each chapter that resembles a lab exercise. I hope it will be easy to follow and execute the instructions step by step. 
 
 #### Table of Contents
 1. [Setting up a Local OpenShift environment](Setting up a Local OpenShift Cluster.md)
