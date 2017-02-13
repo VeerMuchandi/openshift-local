@@ -4,7 +4,7 @@ In this chapter we will use OpenShift Command Line Interface (CLI) to spin up a 
 
 **Use Case:** As a developer, I want to develop my applications locally. In the world of container platform, I still want an local setup where I can deploy and test my code before I push the code to a cluster running in my enterprise data center.
 
-Complete documentation for Local Cluster Management is all on this github [https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md). While, I hate to repeat the same stuff, I had to write it again for a few additional tips that I used to overcome some issues I faced. 
+Complete documentation for Local Cluster Management is all on this github [https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md). I didn't want to repeat everything here. So I jotted down a few additional tips that I used to overcome the issues I faced. 
 
 OpenShift Command (oc), beginning v1.3+ or Red Hat supported oc v3.3+ provides an option to quickly spin up a local OpenShift Cluster on your workstation. OpenShift is available as an all-in-one container image that includes master, node, registry, router, a few image streams and default templates. So when you bring up the cluster with the `oc` command, it will download the image from registry and instantiates it to create your own local OpenShift environment.
 
