@@ -2,7 +2,7 @@
 
 In this chapter we will use OpenShift Command Line Interface (CLI) to spin up a local cluster on your machine.
 
-**Use Case:** As a developer, I want to develop my applications locally. In the world of container platform, I still want an local setup where I can deploy and test my code before I push the code to a cluster running in my enterprise data center.
+**Use Case:** As a developer, I want to develop my applications locally. In the world of container platform, I still want a local setup where I can deploy and test my code before I push the code to a cluster running in my enterprise data center.
 
 Complete documentation for Local Cluster Management is all on this github [https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md). I didn't want to repeat everything here. So I jotted down a few additional tips that I used to overcome the issues I faced. 
 
