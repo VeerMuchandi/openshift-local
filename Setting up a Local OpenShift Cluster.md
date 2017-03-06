@@ -211,7 +211,7 @@ I use the following command to bring up my cluster:
 
 ```
 oc cluster up --image=registry.access.redhat.com/openshift3/ose \
---version= v3.4.1.2-2 --host-data-dir=/Users/veer/occlusterdata/hostdata \
+--version=v3.4 --host-data-dir=/Users/veer/occlusterdata/hostdata \
 --host-config-dir=/Users/veer/occlusterdata/hostconfig \
 --use-existing-config
 
