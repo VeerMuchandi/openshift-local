@@ -24,5 +24,7 @@ In this book, we will learn to setup a local OpenShift cluster on a developer's 
 7. [Using JBDS for Local Development](UsingJBDSForLocalDev.md)
 8. [Deploying an Application using JBDS](CreateAnApplicationFromIDE.md)
 9. [Debugging the application using JBDS](DebuggingUsingIDE.md)
+10. [Building and Deploying Container Images using JBDS](ContainerImagesUsingJBDS.md)
+
 
 
