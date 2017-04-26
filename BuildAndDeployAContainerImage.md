@@ -28,12 +28,12 @@ List the services in this project. It will show `registry`, `router` and `kubern
 ```
 $ oc get svc
 NAME              CLUSTER-IP       EXTERNAL-IP   PORT(S)                   AGE
-docker-registry   172.30.42.182    <none>        5000/TCP                  10d
-kubernetes        172.30.0.1       <none>        443/TCP,53/UDP,53/TCP     10d
-router            172.30.231.168   <none>        80/TCP,443/TCP,1936/TCP   10d
+docker-registry   172.30.1.1       <none>        5000/TCP                  5d
+kubernetes        172.30.0.1       <none>        443/TCP,53/UDP,53/TCP     5d
+router            172.30.233.208   <none>        80/TCP,443/TCP,1936/TCP   5d
 ```
 
-Note the Cluster-IP assigned to the `docker-registry` service. In my case that is `172.30.42.182`. Also note that the registry service has exposed port `5000`.
+Note the Cluster-IP assigned to the `docker-registry` service. In my case that is `172.30.1.1`. Also note that the registry service has exposed port `5000`.
 
 **Step 2: Permissions to the user account**
 
@@ -46,9 +46,9 @@ Also we will assign admin access to the user `developer` to the project named `m
 You are still logged in as `system:admin`. Take time to understand and run the following commands.
 
 ```
-oadm policy add-role-to-user system:registry developer
-oadm policy add-role-to-user system:image-builder developer
-oadm policy add-role-to-user admin developer -n myproject
+oc adm policy add-role-to-user system:registry developer
+oc adm policy add-role-to-user system:image-builder developer
+oc adm policy add-role-to-user admin developer -n myproject
 ```
 
 
@@ -82,14 +82,14 @@ Now login to the container registry using Service IP and Port noted previously, 
 ------------
 **IMPORTANT IMPORTANT IMPORTANT**
 
-Substitute your own `ServiceIP` and `token` values below. I am using mine 172.30.42.182.
+Substitute your own `ServiceIP` and `token` values below. I am using mine 172.30.1.1.
 
 **IMPORTANT IMPORTANT IMPORTANT**
 
 ----------
 
 ```
-$ docker login -u developer -p wCxMwgzJhQmDUnDDvYAzk4K6Zx0-3LLRrnzinZLLCls 172.30.42.182:5000
+$ docker login -u developer -p wCxMwgzJhQmDUnDDvYAzk4K6Zx0-3LLRrnzinZLLCls 172.30.1.1:5000
 Login Succeeded
 ```
 Note the `login` success. Now you are good to push images to this container registry on your local cluster.
@@ -120,7 +120,7 @@ Run `docker build` to create a container image. Tag the image so that it can be 
 
 **IMPORTANT IMPORTANT IMPORTANT**
 
-Substitute your own `ServiceIP` value below. I am using mine 172.30.42.182.
+Substitute your own `ServiceIP` value below. I am using mine 172.30.1.1.
 
 **IMPORTANT IMPORTANT IMPORTANT**
 
@@ -128,7 +128,7 @@ Substitute your own `ServiceIP` value below. I am using mine 172.30.42.182.
 
 
 ```
-$ docker build . -t 172.30.42.182:5000/myproject/bbtime 
+$ docker build . -t 172.30.1.1:5000/myproject/bbtime 
 Sending build context to Docker daemon 3.072 kB
 Step 1 : FROM busybox
  ---> 7968321274dc
@@ -152,8 +152,8 @@ This will create a ContainerImage. You can verify by running `docker images`.
 Now push this container image to your the registry on the local openshift cluster.
 
 ```
-$ docker push 172.30.42.182:5000/myproject/bbtime
-The push refers to a repository [172.30.42.182:5000/myproject/bbtime]
+$ docker push 172.30.1.1:5000/myproject/bbtime
+The push refers to a repository [172.30.1.1:5000/myproject/bbtime]
 1c08423d52b5: Layer already exists 
 38ac8d0f5bb3: Layer already exists 
 latest: digest: sha256:8b2963f7b781da762d2ebbbbf8b900b60091b310f6d97bc3f94a73f29ac61879 size: 4246
@@ -165,13 +165,13 @@ Now we are ready to create our application using this container image.
 Create the application using the container image and expose the service as a route.
 
 ```
-$ oc new-app 172.30.42.182:5000/myproject/bbtime
---> Found Docker image d479778 (About an hour old) from 172.30.42.182:5000 for "172.30.42.182:5000/myproject/bbtime:latest"
+$ oc new-app 172.30.1.1:5000/myproject/bbtime
+--> Found Docker image d479778 (About an hour old) from 172.30.1.1:5000 for "172.30.1.1:5000/myproject/bbtime:latest"
 
     * This image will be deployed in deployment config "bbtime"
     * Port 8080/tcp will be load balanced by service "bbtime"
       * Other containers can access this service through the hostname "bbtime"
-    * WARNING: Image "172.30.42.182:5000/myproject/bbtime:latest" runs as the 'root' user which may not be permitted by your cluster administrator
+    * WARNING: Image "172.30.1.1:5000/myproject/bbtime:latest" runs as the 'root' user which may not be permitted by your cluster administrator
 
 --> Creating resources ...
     deploymentconfig "bbtime" created
@@ -179,21 +179,6 @@ $ oc new-app 172.30.42.182:5000/myproject/bbtime
 --> Success
     Run 'oc status' to view your app.
     
-$ oc new-app 172.30.42.182:5000/myproject/bbtime
-W0209 23:03:58.164810   76202 dockerimagelookup.go:217] Docker registry lookup failed: Internal error occurred: Get https://172.30.42.182:5000/v2/: http: server gave HTTP response to HTTPS client
-W0209 23:03:58.197115   76202 newapp.go:338] Could not find an image stream match for "172.30.42.182:5000/myproject/bbtime:latest". Make sure that a Docker image with that tag is available on the node for the deployment to succeed.
---> Found Docker image d479778 (About an hour old) from 172.30.42.182:5000 for "172.30.42.182:5000/myproject/bbtime:latest"
-
-    * This image will be deployed in deployment config "bbtime"
-    * Port 8080/tcp will be load balanced by service "bbtime"
-      * Other containers can access this service through the hostname "bbtime"
-    * WARNING: Image "172.30.42.182:5000/myproject/bbtime:latest" runs as the 'root' user which may not be permitted by your cluster administrator
-
---> Creating resources ...
-    deploymentconfig "bbtime" created
-    service "bbtime" created
---> Success
-    Run 'oc status' to view your app.
 
 $ oc expose svc/bbtime
 route "bbtime" exposed
