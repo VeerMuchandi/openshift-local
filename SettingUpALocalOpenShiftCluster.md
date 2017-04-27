@@ -1,12 +1,8 @@
-##Setting up a Local OpenShift Cluster
+## Setting up a Local OpenShift Cluster
 
 In this chapter we will use OpenShift Command Line Interface (CLI) to spin up a local cluster on your machine.
 
 **Use Case:** As a developer, I want to develop my applications locally. In the world of container platform, I still want a local setup where I can deploy and test my code before I push the code to a cluster running in my enterprise data center.
-
-We have two options.		 
-1. Using Minishift (recommended)		
-2. Using `oc cluster up`
 
 
 ### Using Minishift
