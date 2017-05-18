@@ -20,11 +20,12 @@ In this book, we will learn to setup a local OpenShift cluster on a developer's 
 3. [Change Application and Test Locally](ChangeApplicationAndTestLocally.md) 
 4. [Connecting your application to a Local Database](ConnectingYourApplicationToALocalDatabase.md)
 5. [Dynamic Configuration Changes to a Running Pod](DynamicConfigUpdatesToARunningPod.md)
-6. [Setting up JBoss Developer Studio](SettingUpJBossDeveloperStudio.md)
-7. [Using JBDS for Local Development](UsingJBDSForLocalDev.md)
-8. [Deploying an Application using JBDS](CreateAnApplicationFromIDE.md)
-9. [Debugging the application using JBDS](DebuggingUsingIDE.md)
-10. [Building and Deploying Container Images using JBDS](ContainerImagesUsingJBDS.md)
+6. [Changing Code on the Fly](ChangingCodeOnTheFly.md)
+7. [Setting up JBoss Developer Studio](SettingUpJBossDeveloperStudio.md)
+8. [Using JBDS for Local Development](UsingJBDSForLocalDev.md)
+9. [Deploying an Application using JBDS](CreateAnApplicationFromIDE.md)
+10. [Debugging the application using JBDS](DebuggingUsingIDE.md)
+11. [Building and Deploying Container Images using JBDS](ContainerImagesUsingJBDS.md)
 
 
 
