@@ -31,10 +31,6 @@ CDK Version: 3.0.0-20042017
 ```
 
 
-
-
-#### Using Minishift
-
 Using CDK involves two steps a) Setup CDK and b)Running Minishift. If you are using opensource version, you can skip setup-cdk part. 
 
 **Step 1:** Run setup-cdk to download minishift-rhel7.iso. This command will extract and put the ISO and the `oc` binary in the ~/.minishift/cache directory and create the configuration file with defaults for properties along with the cdk marker file in ~/.minishift/cdk.
