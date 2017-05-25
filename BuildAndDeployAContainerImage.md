@@ -15,7 +15,14 @@ In this chapter, we will learn to create a Container Image using a Dockerfile an
 
 **Step 1: Identify your local Registry Service IP**
 
-First login as an administrator to your local OpenShift Environment and shift to the `default` project. 
+The easiest way to find the registry ip is to run a simple minishift command
+
+```
+$ minishift openshift registry
+172.30.1.1:5000
+```
+
+If you want to get a little geeky, login as an administrator to your local OpenShift Environment and shift to the `default` project. 
 
 Since this is your local cluster, you can switch over as administrator on your cluster. Yay!! you are the KING :)
 
@@ -33,7 +40,7 @@ kubernetes        172.30.0.1       <none>        443/TCP,53/UDP,53/TCP     5d
 router            172.30.233.208   <none>        80/TCP,443/TCP,1936/TCP   5d
 ```
 
-Note the Cluster-IP assigned to the `docker-registry` service. In my case that is `172.30.1.1`. Also note that the registry service has exposed port `5000`.
+Note the Cluster-IP assigned to the `docker-registry` service. This is usually set to `172.30.1.1` with a local openshift cluster. Also note that the registry service has exposed port `5000`.
 
 **Step 2: Permissions to the user account**
 
@@ -58,7 +65,7 @@ Login as `developer` again with password `developer`.
 
 ```
 $ oc login -u developer
-Authentication required for https://127.0.0.1:8443 (openshift)
+Authentication required for https://192.168.99.100:8443 (openshift)
 Username: developer
 Password: 
 Login successful.
@@ -79,14 +86,7 @@ Make a note of the resultant `token`
 
 Now login to the container registry using Service IP and Port noted previously, token from the previous step, and as the user `developer`.
 
-------------
-**IMPORTANT IMPORTANT IMPORTANT**
-
-Substitute your own `ServiceIP` and `token` values below. I am using mine 172.30.1.1.
-
-**IMPORTANT IMPORTANT IMPORTANT**
-
-----------
+**Note:** We are logging into the registry at IP:PORT that we noted above which is 172.30.1.1:5000. If for some reason your registry IP is different, change it.
 
 ```
 $ docker login -u developer -p wCxMwgzJhQmDUnDDvYAzk4K6Zx0-3LLRrnzinZLLCls 172.30.1.1:5000
@@ -116,15 +116,9 @@ Dockerfile	init.sh
 
 Run `docker build` to create a container image. Tag the image so that it can be pushed to your local container registry. 
 
------
 
-**IMPORTANT IMPORTANT IMPORTANT**
 
-Substitute your own `ServiceIP` value below. I am using mine 172.30.1.1.
-
-**IMPORTANT IMPORTANT IMPORTANT**
-
------
+**Note:** Substitute your own `ServiceIP` value below. I am using mine `172.30.1.1:5000`.
 
 
 ```
