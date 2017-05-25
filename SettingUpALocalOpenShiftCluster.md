@@ -17,7 +17,7 @@ When you use the opensource version `minishift version` will indicate the same.
 
 ```
 $ minishift version
-Minishift version: 1.0.0-rc.2
+Minishift version: 1.0.1
 ```
 
 **CDK:** Red Hat Container Development Kit 3 (CDK 3) is the Red Hat supported version of Minishift. This is currently beta as described in this [blog](https://developers.redhat.com/blog/2017/02/28/using-red-hat-container-development-kit-3-beta/). You can download the CDK 3 beta from [https://developers.redhat.com/products/cdk/download/](https://developers.redhat.com/products/cdk/download/). CDK Minishift runs OpenShift Container Platform supported by Red Hat. CDK registers the VM to Red Hat subscription manager, and hence you will need Red Hat credentials such as [Red Hat developer subscription](https://developers.redhat.com/blog/2016/03/31/no-cost-rhel-developer-subscription-now-available/).
