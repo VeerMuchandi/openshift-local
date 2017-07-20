@@ -94,6 +94,8 @@ Login Succeeded
 ```
 Note the `login` success. Now you are good to push images to this container registry on your local cluster.
 
+If you have issue logging in run ```eval $(minishift docker-env)``` to set your docker to point to docker daemon running in the vm.
+
 
 **Step 4: Build a Container Image from Dockerfile**
 
